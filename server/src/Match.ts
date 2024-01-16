@@ -31,6 +31,7 @@ export default class Match {
   }
 
   verifyWord(word: string) {
+    if(!word) return false;
     //Make the guess case insensitive
     const done = word.toLowerCase() === this._word.toLowerCase();
     if(done) {
