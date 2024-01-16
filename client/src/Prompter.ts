@@ -74,7 +74,7 @@ export default class Prompter {
     } catch(err) {
       console.log(err.message);
     } finally {
-      await this.command();
+      await this.command(message);
     }
   }
   
@@ -190,6 +190,7 @@ export default class Prompter {
 
       case MATCH_STARTED:
         this.setMatch(new ClientMatch());
+        this.abort();
         this.command('hint');
         break;
 
