@@ -16,7 +16,7 @@ export default class Server {
     this._tlsServer = createServer(this._options, (socket: TLSSocket) => {
       this._socketManager.add(socket);
     });
-    this._tlsServer = createServer(this._options, (socket: TLSSocket) => {
+    this._unixServer = createServer(this._options, (socket: TLSSocket) => {
       this._socketManager.add(socket);
     });
     this.attachErrorHandler();
