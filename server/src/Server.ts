@@ -1,7 +1,7 @@
 import { TLSSocket, TlsOptions, Server as TlsServer, createServer } from "tls";
 import { createServer as createHttpServer } from 'http';
 import SocketManager from "./SocketManager";
-import { readFileSync } from "fs";
+import { existsSync, readFileSync, unlinkSync } from "fs";
 import { join } from "path";
 
 export default class Server {
@@ -9,20 +9,32 @@ export default class Server {
   private _socketManager: SocketManager = new SocketManager();
   private _port: number;
   private _tlsServer: TlsServer;
+  private _unixServer: TlsServer;
 
   constructor(options: TlsOptions) {
     this._options = options;
     this._tlsServer = createServer(this._options, (socket: TLSSocket) => {
       this._socketManager.add(socket);
     });
+    this._tlsServer = createServer(this._options, (socket: TLSSocket) => {
+      this._socketManager.add(socket);
+    });
     this.attachErrorHandler();
   }
 
-  start(port: number) {
+  start(port: number, unixSocket?: string) {
     this._port = port;
     this._tlsServer.listen(port, () => {
       console.log(`Server is listening on ${port}`);
     });
+    if(process.platform !== 'win32') {
+      if(existsSync(unixSocket)) {
+        unlinkSync(unixSocket);
+      }
+      this._unixServer.listen(unixSocket, () => {
+        console.log(`Server is listening on ${unixSocket}`);
+      });
+    }
     this.startStatsWeb();
   }
 

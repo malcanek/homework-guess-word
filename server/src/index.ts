@@ -1,7 +1,8 @@
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import Server from "./Server";
 
 const PORT = 8888;
+const UNIX_SOCKET = '/var/run/game-socket';
 
 const options = {
   key: readFileSync('cert/private-key.pem'),
@@ -11,4 +12,4 @@ const options = {
 };
 
 const server = new Server(options);
-server.start(PORT);
+server.start(PORT, UNIX_SOCKET);
