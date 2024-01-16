@@ -134,7 +134,7 @@ export default class SocketManager {
           match.end();
         } else {
           match.opponent.send(new Message(WRONG_GUESS, 'Wrong word. Please try again'));
-          match.initiator.send(new Message(MESSAGE, `Opponent has guess "${message.messageString}" which was wrongs. Number of attempts: ${match.tries}.`));
+          match.initiator.send(new Message(MESSAGE, `Opponent has guess "${message.messageString}" which was wrong. Number of attempts: ${match.tries}.`));
         }
         break;
 
