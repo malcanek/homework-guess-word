@@ -1,0 +1,17 @@
+export const INIT_CONN = 'INIT_CONN';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESSFUL = 'LOGIN_SUCCESSFUL';
+export const ERROR = 'ERROR';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const GET_OPPONENTS = 'GET_OPPONENTS';
+export const START_MATCH = 'START_MATCH';
+export const ACCEPT_MATCH = 'ACCEPT_MATCH';
+export const DECLINE_MATCH = 'DECLINE_MATCH';
+export const GUESS = 'GUESS';
+export const GIVE_UP = 'GIVE_UP';
+export const HINT = 'HINT';
+export const MESSAGE = 'MESSAGE';
+export const WRONG_GUESS = 'WRONG_GUESS';
+export const END_MATCH = 'END_MATCH';
+export const AVAILABLE_OPPONENTS = 'AVAILABLE_OPPONENTS';
+export const MATCH_STARTED = 'MATCH_STARTED';

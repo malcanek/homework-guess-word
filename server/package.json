@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for the Guess a word game",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.ts",
+    "production": "ts-node -P ./tsconfig.json ./src/index.ts"
+  },
+  "author": "Jan Malcanek",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.8",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
