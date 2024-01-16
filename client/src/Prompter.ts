@@ -80,7 +80,11 @@ export default class Prompter {
   
   async guessPrompt() {
     const cmd = await this.asyncCmdQuestion('Guess the word');
-    this._client.send(new Message(GUESS, cmd));
+    if(cmd) {
+      this._client.send(new Message(GUESS, cmd));
+    } else {
+      this.guessPrompt();
+    }
   }
 
   setOpponents(opponents: string[]) {
