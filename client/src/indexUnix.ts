@@ -1,7 +1,8 @@
 import { readFileSync } from "fs";
 import GameClient from "./GameClient";
+import { join } from "path";
 
-const UNIX_SOCKET = '/var/run/game-socket';
+const UNIX_SOCKET = join(__dirname, '../../game-socket');
 
 const options = {
   cert: readFileSync('cert/public-cert.pem'),

@@ -1,8 +1,9 @@
 import { existsSync, readFileSync } from "fs";
 import Server from "./Server";
+import { join } from "path";
 
 const PORT = 8888;
-const UNIX_SOCKET = '/var/run/game-socket';
+const UNIX_SOCKET = join(__dirname, '../../game-socket');
 
 const options = {
   key: readFileSync('cert/private-key.pem'),
